@@ -1,0 +1,48 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: Marcel
+      changes:
+        - createTable:
+            tableName: Users
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: username
+                  type: varchar(100)
+                  constraints:
+                    unique: true
+              - column:
+                  name: email
+                  type: varchar(100)
+              - column:
+                  name: name
+                  type: varchar(100)
+  - changeSet:
+      id: 2
+      author: Marcel
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: enabled
+                  type: varchar(100)
+            schemaName: demo
+            tableName: Users
+  - changeSet:
+      id: Add password field
+      author: Marcel
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: password
+                  type: varchar(255)
+            schemaName: demo
+            tableName: Users
